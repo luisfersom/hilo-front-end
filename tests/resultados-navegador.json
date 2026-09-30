@@ -1,0 +1,16 @@
+{
+  "fecha": "2026-09-29T23:32:42.405Z",
+  "navegador": "153.0.4234.46",
+  "resultados": [
+    "Catálogo JSON y filtro: correcto",
+    "Favoritos, recarga, retiro y estado vacío: correcto",
+    "Campos obligatorios, correo inválido y confirmación: correcto",
+    "Crear, persistir, cancelar eliminación, eliminar y limpiar favorito: correcto",
+    "Texto HTML se muestra como texto y URL javascript rechazada: correcto",
+    "Detalle inexistente: correcto",
+    "Seis páginas sin desbordamiento horizontal a 390, 768 y 1440 px: correcto",
+    "Fallo de carga y reintento: correcto",
+    "Recuperación de almacenamiento corrupto: correcto"
+  ],
+  "erroresJavaScript": []
+}

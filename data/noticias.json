@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "titulo": "Bibliotecas que conectan barrios",
+    "hilo": "Ciudad que aprende",
+    "categoria": "Educación",
+    "imagen": "assets/img/editorial-0.svg",
+    "resumen": "Ideas y espacios para aprender en comunidad.",
+    "contenido": "Bibliotecas que conectan barrios es una noticia ficticia elaborada para este prototipo académico. Presenta una propuesta de encuentro que invita a aprender, conversar y compartir conocimientos del entorno.\n\nLa iniciativa reúne a estudiantes y vecinos alrededor de actividades abiertas. Cada participante puede aportar preguntas, experiencias y recursos para construir una conversación común.\n\nEsta historia permite explorar la lectura, consultar publicaciones relacionadas y guardar una noticia para recuperarla después. No describe un suceso real ni constituye información periodística verificada.",
+    "fecha": "2026-09-15",
+    "autor": "Redacción HILO",
+    "destacada": true
+  },
+  {
+    "id": "2",
+    "titulo": "Un laboratorio abierto al campus",
+    "hilo": "Campus abierto",
+    "categoria": "Tecnología",
+    "imagen": "assets/img/editorial-1.svg",
+    "resumen": "Un espacio para experimentar y compartir conocimientos.",
+    "contenido": "Un laboratorio abierto al campus es una noticia ficticia elaborada para este prototipo académico. Presenta una propuesta de encuentro que invita a aprender, conversar y compartir conocimientos del entorno.\n\nLa iniciativa reúne a estudiantes y vecinos alrededor de actividades abiertas. Cada participante puede aportar preguntas, experiencias y recursos para construir una conversación común.\n\nEsta historia permite explorar la lectura, consultar publicaciones relacionadas y guardar una noticia para recuperarla después. No describe un suceso real ni constituye información periodística verificada.",
+    "fecha": "2026-09-16",
+    "autor": "Redacción HILO",
+    "destacada": true
+  },
+  {
+    "id": "3",
+    "titulo": "Rutas para caminar la ciudad",
+    "hilo": "Rutas locales",
+    "categoria": "Cultura",
+    "imagen": "assets/img/editorial-2.svg",
+    "resumen": "Recorridos que acercan a las historias del territorio.",
+    "contenido": "Rutas para caminar la ciudad es una noticia ficticia elaborada para este prototipo académico. Presenta una propuesta de encuentro que invita a aprender, conversar y compartir conocimientos del entorno.\n\nLa iniciativa reúne a estudiantes y vecinos alrededor de actividades abiertas. Cada participante puede aportar preguntas, experiencias y recursos para construir una conversación común.\n\nEsta historia permite explorar la lectura, consultar publicaciones relacionadas y guardar una noticia para recuperarla después. No describe un suceso real ni constituye información periodística verificada.",
+    "fecha": "2026-09-17",
+    "autor": "Redacción HILO",
+    "destacada": true
+  },
+  {
+    "id": "4",
+    "titulo": "Talleres con la comunidad",
+    "hilo": "Ciudad que aprende",
+    "categoria": "Educación",
+    "imagen": "assets/img/editorial-0.svg",
+    "resumen": "Ideas y espacios para aprender en comunidad.",
+    "contenido": "Talleres con la comunidad es una noticia ficticia elaborada para este prototipo académico. Presenta una propuesta de encuentro que invita a aprender, conversar y compartir conocimientos del entorno.\n\nLa iniciativa reúne a estudiantes y vecinos alrededor de actividades abiertas. Cada participante puede aportar preguntas, experiencias y recursos para construir una conversación común.\n\nEsta historia permite explorar la lectura, consultar publicaciones relacionadas y guardar una noticia para recuperarla después. No describe un suceso real ni constituye información periodística verificada.",
+    "fecha": "2026-09-18",
+    "autor": "Redacción HILO",
+    "destacada": false
+  },
+  {
+    "id": "5",
+    "titulo": "Tecnología que se repara en equipo",
+    "hilo": "Campus abierto",
+    "categoria": "Tecnología",
+    "imagen": "assets/img/editorial-1.svg",
+    "resumen": "Un espacio para experimentar y compartir conocimientos.",
+    "contenido": "Tecnología que se repara en equipo es una noticia ficticia elaborada para este prototipo académico. Presenta una propuesta de encuentro que invita a aprender, conversar y compartir conocimientos del entorno.\n\nLa iniciativa reúne a estudiantes y vecinos alrededor de actividades abiertas. Cada participante puede aportar preguntas, experiencias y recursos para construir una conversación común.\n\nEsta historia permite explorar la lectura, consultar publicaciones relacionadas y guardar una noticia para recuperarla después. No describe un suceso real ni constituye información periodística verificada.",
+    "fecha": "2026-09-19",
+    "autor": "Redacción HILO",
+    "destacada": false
+  },
+  {
+    "id": "6",
+    "titulo": "Un mapa de memorias locales",
+    "hilo": "Rutas locales",
+    "categoria": "Cultura",
+    "imagen": "assets/img/editorial-2.svg",
+    "resumen": "Recorridos que acercan a las historias del territorio.",
+    "contenido": "Un mapa de memorias locales es una noticia ficticia elaborada para este prototipo académico. Presenta una propuesta de encuentro que invita a aprender, conversar y compartir conocimientos del entorno.\n\nLa iniciativa reúne a estudiantes y vecinos alrededor de actividades abiertas. Cada participante puede aportar preguntas, experiencias y recursos para construir una conversación común.\n\nEsta historia permite explorar la lectura, consultar publicaciones relacionadas y guardar una noticia para recuperarla después. No describe un suceso real ni constituye información periodística verificada.",
+    "fecha": "2026-09-20",
+    "autor": "Redacción HILO",
+    "destacada": false
+  }
+]

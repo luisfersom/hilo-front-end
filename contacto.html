@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="HILO: noticias de demostración para leer, guardar y compartir contexto."
+    />
+    <title>Envía un dato · HILO</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script type="module" src="assets/js/app.js"></script>
+  </head>
+  <body data-page="contacto">
+    <a class="skip" href="#main">Saltar al contenido</a>
+    <header class="site-header wrap">
+      <a class="brand" href="index.html" aria-label="HILO, inicio"
+        >HILO<span>Historias con contexto</span></a
+      >
+      <nav aria-label="Navegación principal">
+        <a href="index.html">Inicio</a><a href="noticias.html">Kiosco</a
+        ><a href="favoritos.html">Mi Hilo <span id="saved-count">0</span></a
+        ><a href="redaccion.html">Redacción</a
+        ><a href="contacto.html" aria-current="page">Envía un dato</a>
+      </nav>
+    </header>
+    <div class="wrap">
+      <p id="storage-warning" role="status" hidden></p>
+      <p id="notice" role="status" aria-live="polite"></p>
+    </div>
+    <main id="main" class="wrap" tabindex="-1"><p>Cargando noticias…</p></main>
+    <noscript
+      >Activa JavaScript para cargar las noticias y utilizar el
+      prototipo.</noscript
+    >
+    <footer>
+      <div class="wrap">
+        <strong>HILO — Historias con contexto</strong>
+        <p>Prototipo académico · Noticias ficticias · 2026</p>
+        <a href="index.html">Inicio</a> · <a href="noticias.html">Kiosco</a> ·
+        <a href="contacto.html">Contacto</a>
+      </div>
+    </footer>
+  </body>
+</html>

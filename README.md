@@ -63,12 +63,12 @@ location.reload();
 
 Repositorio: https://github.com/luisfersom/hilo-front-end
 
-URL prevista de Pages: https://luisfersom.github.io/hilo-front-end/
+Aplicación publicada y verificada en Pages: https://luisfersom.github.io/hilo-front-end/
 
 En GitHub, seleccionar Settings → Pages → Source → GitHub Actions. El workflow
 `.github/workflows/pages.yml` compila, prueba y publica al actualizar `main`,
 o mediante Run workflow. La URL anterior debe verificarse después de publicar;
-la presencia del workflow por sí sola no significa que el sitio esté desplegado.
+la presencia del workflow por sí sola no significa que una actualización esté desplegada.
 Las rutas con hash (`#/kiosco`) y la base relativa permiten recargar las vistas.
 
 El informe APA y el guion de video se conservan fuera de este repositorio,

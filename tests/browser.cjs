@@ -182,6 +182,7 @@ const path = require("node:path");
   results.push("Recuperación de almacenamiento corrupto: correcto");
   assert.deepEqual(errors, []);
   const report = {
+    url: base,
     fecha: new Date().toISOString(),
     navegador: await browser.version(),
     resultados: results,

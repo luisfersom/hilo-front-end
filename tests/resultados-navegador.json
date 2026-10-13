@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-10-13T04:36:34.937Z",
+  "fecha": "2026-10-13T04:40:35.990Z",
   "navegador": "155.0.4283.45",
   "resultados": [
     "Catálogo JSON y filtro: correcto",
@@ -12,5 +12,6 @@
     "Fallo de carga y reintento: correcto",
     "Recuperación de almacenamiento corrupto: correcto"
   ],
-  "erroresJavaScript": []
+  "erroresJavaScript": [],
+  "url": "https://luisfersom.github.io/hilo-front-end/"
 }

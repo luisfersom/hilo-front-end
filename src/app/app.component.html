@@ -1,0 +1,45 @@
+<a class="skip" href="#main" (click)="skip($event)">Saltar al contenido</a>
+<header class="site-header wrap">
+  <a class="brand" routerLink="/" aria-label="HILO, inicio"
+    >HILO<span>Historias con contexto</span></a
+  >
+  <nav aria-label="Navegación principal">
+    @for (link of links; track link.path) {
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+        >{{ link.label }}
+        @if (link.path === "/mi-hilo") {
+          <span id="saved-count">{{ store.favoritos().length }}</span>
+        }
+      </a>
+    }
+  </nav>
+</header>
+<div class="wrap">
+  <p id="storage-warning" role="status" [hidden]="!store.warning()">
+    {{ store.warning() }}
+  </p>
+  <p id="notice" role="status" aria-live="polite">{{ store.notice() }}</p>
+</div>
+<main id="main" class="wrap" tabindex="-1">
+  @if (store.loading()) {
+    <p>Cargando noticias…</p>
+  } @else if (store.error()) {
+    <h1>No se pudo cargar el catálogo</h1>
+    <p>Comprueba la conexión y vuelve a intentarlo.</p>
+    <button id="retry" (click)="store.load()">Reintentar</button>
+  } @else {
+    <router-outlet />
+  }
+</main>
+<footer>
+  <div class="wrap">
+    <strong>HILO — Historias con contexto</strong>
+    <p>Proyecto académico · Noticias ficticias · 2026</p>
+    <a routerLink="/">Inicio</a> · <a routerLink="/kiosco">Kiosco</a> ·
+    <a routerLink="/contacto">Contacto</a>
+  </div>
+</footer>

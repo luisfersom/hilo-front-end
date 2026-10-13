@@ -16,6 +16,7 @@ export function validNews(n) {
     ].every((k) => typeof n[k] === "string" && n[k].trim())
   );
 }
+/** @param {(message: string) => void} warn */
 export function createStore(seed, storage, warn = () => {}) {
   let state = { noticias: seed.map((n) => ({ ...n })), favoritos: [] };
   try {

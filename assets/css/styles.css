@@ -329,3 +329,7 @@ dialog::backdrop {
     padding-top: 0;
   }
 }
+
+/* Los componentes participan en el grid sin alterar la maqueta original. */
+app-card { display: block; min-width: 0; }
+app-card .card { height: 100%; box-sizing: border-box; }

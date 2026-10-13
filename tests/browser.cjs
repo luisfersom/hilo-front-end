@@ -1,5 +1,6 @@
 /* Ejecutar con Playwright instalado; ver README. Usa un perfil temporal aislado. */
 const { chromium } = require(process.env.PLAYWRIGHT_MODULE || "playwright");
+const { setTimeout: delay } = require("node:timers/promises");
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
@@ -22,8 +23,16 @@ const path = require("node:path");
   );
   fs.mkdirSync(out, { recursive: true });
   const results = [];
+  async function count(selector, expected) {
+    for (let i = 0; i < 100; i++) {
+      if ((await page.locator(selector).count()) === expected) return;
+      await delay(50);
+    }
+    assert.equal(await page.locator(selector).count(), expected);
+  }
   async function go(url) {
     await page.goto(base + url);
+    await page.reload();
     await page.waitForSelector("main h1");
   }
   async function shot(name) {
@@ -32,16 +41,16 @@ const path = require("node:path");
       fullPage: true,
     });
   }
-  await go("index.html");
-  assert.equal(await page.locator(".card").count(), 3);
+  await go("#/");
+  await count(".card", 3);
   await shot("inicio-real");
-  await go("noticias.html");
-  assert.equal(await page.locator(".card").count(), 6);
+  await go("#/kiosco");
+  await count(".card", 6);
   await shot("kiosco-real");
   await page.getByRole("button", { name: "Tecnología", exact: true }).click();
-  assert.equal(await page.locator(".card").count(), 2);
+  await count(".card", 2);
   results.push("Catálogo JSON y filtro: correcto");
-  await go("detalle.html?id=1");
+  await go("#/detalle/1");
   await page.locator("[data-save]").click();
   await page.reload();
   await page.waitForSelector("[data-save]");
@@ -50,17 +59,17 @@ const path = require("node:path");
     "true",
   );
   await shot("detalle-real");
-  await go("favoritos.html");
-  assert.equal(await page.locator(".card").count(), 1);
+  await go("#/mi-hilo");
+  await count(".card", 1);
   await shot("favoritos-real");
   await page.locator("[data-save]").click();
   await page
     .getByRole("heading", { name: "Todavía no guardas noticias." })
     .waitFor();
   results.push("Favoritos, recarga, retiro y estado vacío: correcto");
-  await go("contacto.html");
+  await go("#/contacto");
   await page.getByRole("button", { name: "Enviar dato" }).click();
-  assert.equal(await page.locator("[aria-invalid=true]").count(), 4);
+  await count("[aria-invalid=true]", 4);
   assert.equal(await page.locator(":focus").getAttribute("id"), "nombre");
   await page.locator("#nombre").fill("Prueba");
   await page.locator("#correo").fill("correo-invalido");
@@ -74,16 +83,20 @@ const path = require("node:path");
   await shot("contacto-error");
   await page.locator("#correo").fill("prueba@example.com");
   await page.getByRole("button", { name: "Enviar dato" }).click();
+  await page
+    .locator("#confirmation")
+    .filter({ hasText: "Confirmación simulada" })
+    .waitFor();
   assert.match(
     await page.locator("#confirmation").textContent(),
     /Confirmación simulada/,
   );
   await shot("contacto-real");
   results.push("Campos obligatorios, correo inválido y confirmación: correcto");
-  await go("redaccion.html");
+  await go("#/redaccion");
   await shot("redaccion-real");
   await page.getByRole("button", { name: "Publicar nota" }).click();
-  assert.equal(await page.locator("[aria-invalid=true]").count(), 6);
+  await count("[aria-invalid=true]", 6);
   for (const [k, v] of Object.entries({
     titulo: "Nota de prueba <script>alert(1)</script>",
     hilo: "Prueba",
@@ -100,43 +113,43 @@ const path = require("node:path");
   );
   await page.locator("#imagen").fill("assets/img/editorial-0.svg");
   await page.getByRole("button", { name: "Publicar nota" }).click();
-  assert.equal(await page.locator(".published").count(), 7);
-  await go("noticias.html");
-  assert.equal(await page.locator(".card").count(), 7);
+  await count(".published", 7);
+  await go("#/kiosco");
+  await count(".card", 7);
   assert.match(
     await page.locator(".card h3").first().textContent(),
     /<script>/,
   );
   await page.locator("[data-save]").first().click();
-  await go("redaccion.html");
+  await go("#/redaccion");
   await page.locator("[data-delete]").first().click();
   await page.locator("#cancel-delete").click();
-  assert.equal(await page.locator(".published").count(), 7);
+  await count(".published", 7);
   await page.locator("[data-delete]").first().click();
   await page.locator("#confirm-delete").click();
   await page.reload();
   await page.waitForSelector(".published");
-  assert.equal(await page.locator(".published").count(), 6);
-  await go("favoritos.html");
-  assert.equal(await page.locator(".card").count(), 0);
+  await count(".published", 6);
+  await go("#/mi-hilo");
+  await count(".card", 0);
   results.push(
     "Crear, persistir, cancelar eliminación, eliminar y limpiar favorito: correcto",
   );
   results.push(
     "Texto HTML se muestra como texto y URL javascript rechazada: correcto",
   );
-  await go("detalle.html?id=no-existe");
+  await go("#/detalle/no-existe");
   assert.equal(await page.locator("h1").textContent(), "Noticia no encontrada");
   results.push("Detalle inexistente: correcto");
   for (const width of [390, 768, 1440]) {
     await page.setViewportSize({ width, height: 844 });
     for (const route of [
-      "index.html",
-      "noticias.html",
-      "detalle.html?id=1",
-      "favoritos.html",
-      "contacto.html",
-      "redaccion.html",
+      "#/",
+      "#/kiosco",
+      "#/detalle/1",
+      "#/mi-hilo",
+      "#/contacto",
+      "#/redaccion",
     ]) {
       await go(route);
       assert.ok(
@@ -145,15 +158,15 @@ const path = require("node:path");
         ),
         `${route} desborda a ${width}`,
       );
-      if (width === 390 && ["index.html", "contacto.html"].includes(route))
-        await shot(route.split(".")[0] + "-movil-real");
+      if (width === 390 && ["#/", "#/contacto"].includes(route))
+        await shot((route === "#/" ? "inicio" : "contacto") + "-movil-real");
     }
   }
   results.push(
     "Seis páginas sin desbordamiento horizontal a 390, 768 y 1440 px: correcto",
   );
   await page.route("**/data/noticias.json", (r) => r.abort());
-  await go("noticias.html");
+  await go("#/kiosco");
   assert.equal(
     await page.locator("h1").textContent(),
     "No se pudo cargar el catálogo",

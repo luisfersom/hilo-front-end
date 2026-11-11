@@ -167,12 +167,3 @@ como exitosos pasos que no se hayan ejecutado.
 | Ida y vuelta | Captura de `#/mensajes` y DevTools → Network con POST y GET exitosos; salida de `python3 tests/integration.py`. |
 | Persistencia | Recrear sin borrar volúmenes y ejecutar `python3 tests/integration.py --verify-persistence`. |
 | Pipeline | Actions mostrando commit y pasos verdes, incluidos builds e integración. |
-
-El contenido completo de los archivos de esta adaptación está en
-[`docs/archivos-entrega.md`](docs/archivos-entrega.md). Las comprobaciones locales
-se registran en [`docs/verificacion.md`](docs/verificacion.md).
-
-## Informe de la Entrega 1
-
-[PDF con evidencias y referencias APA](docs/entrega-1/informe.pdf).
-[Fuentes y registros](docs/entrega-1/README.md).

@@ -13,3 +13,8 @@ __pycache__/
 .venv/
 backend/data/
 *.sqlite3
+
+# Informes y evidencias académicas se conservan fuera del repositorio
+/docs/entrega-*/
+/docs/archivos-entrega.md
+/docs/verificacion.md

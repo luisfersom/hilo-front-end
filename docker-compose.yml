@@ -1,0 +1,38 @@
+name: hilo
+services:
+  frontend:
+    build: .
+    environment:
+      BACKEND_URL: http://backend:3001
+    ports:
+      - "${FRONTEND_PORT:-8080}:8080"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks: [hilo-network]
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://frontend:8080/api/status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_PATH: /data/messages.sqlite3
+    ports:
+      - "${BACKEND_PORT:-3001}:3001"
+    volumes:
+      - messages-data:/data
+    networks: [hilo-network]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://backend:3001/api/status', timeout=3)"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+networks:
+  hilo-network:
+    driver: bridge
+volumes:
+  messages-data:

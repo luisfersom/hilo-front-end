@@ -14,6 +14,7 @@ export class AppComponent {
     { path: "/mi-hilo", label: "Mi Hilo" },
     { path: "/redaccion", label: "Redacción" },
     { path: "/contacto", label: "Envía un dato" },
+    { path: "/mensajes", label: "Mensajes" },
   ];
   skip(event: Event) {
     event.preventDefault();

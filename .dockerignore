@@ -1,0 +1,16 @@
+node_modules
+.git
+.env
+.env.*
+dist
+build
+coverage
+.angular
+artifacts
+backend
+.github
+docs
+tests
+**/__pycache__
+**/.venv
+*.log

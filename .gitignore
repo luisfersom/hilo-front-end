@@ -5,3 +5,11 @@ artifacts/
 node_modules/
 dist/
 .angular/
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.venv/
+backend/data/
+*.sqlite3

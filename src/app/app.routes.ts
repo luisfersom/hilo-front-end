@@ -1,4 +1,5 @@
 import { Routes } from "@angular/router";
+import { MessagesComponent } from "./messages.component";
 import {
   HomeComponent,
   KioscoComponent,
@@ -7,6 +8,7 @@ import {
 } from "./pages.component";
 import { ContactComponent, NewsroomComponent } from "./forms.component";
 export const routes: Routes = [
+  { path: "mensajes", component: MessagesComponent, title: "Mensajes · HILO" },
   { path: "", component: HomeComponent, title: "Inicio · HILO" },
   { path: "kiosco", component: KioscoComponent, title: "Kiosco · HILO" },
   { path: "detalle/:id", component: DetailComponent, title: "La nota · HILO" },
